@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "d7aef37c-5c21-47a8-bbe9-ab0d1a413249",
+		"name": "Image Processing API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36914560"
+	},
+	"item": [
+		{
+			"name": "Upload CSV",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "webhook_url",
+							"value": "https://your-webhook-listener.com/endpoint",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/upload",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"upload"
+					]
+				},
+				"description": "Upload a CSV file for image processing. Select your CSV file for the 'file' key. Optionally enable and set the 'webhook_url'."
+			},
+			"response": []
+		},
+		{
+			"name": "Check Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/status/{{requestId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"status",
+						"{{requestId}}"
+					]
+				},
+				"description": "Check the processing status using the request ID obtained from the Upload CSV endpoint. Set the `requestId` variable in Postman."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8000",
+			"type": "default"
+		},
+		{
+			"key": "requestId",
+			"value": "PASTE_YOUR_REQUEST_ID_HERE",
+			"type": "default"
+		}
+	]
+}
