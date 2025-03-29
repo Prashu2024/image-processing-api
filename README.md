@@ -126,7 +126,7 @@ graph LR
         *   If a `webhook_url` exists, sends a POST request to that URL with a JSON payload containing the `request_id` and final `status`.
         *   Uses a simple `requests.post` call (Note: In a production system, consider using background tasks or a message queue for more robust webhook delivery).
 
-### Database Schema
+### Database Schema (using sqlite3 for now, as this is also ACID complied DB)
 
 *   **requests** table:
     *   `request_id` (String, Primary Key): Unique identifier for the upload request.
